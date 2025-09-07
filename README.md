@@ -24,10 +24,12 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Building
 
-To build the project run:
+To build with /day/ context path:
 
 ```bash
-ng build
+
+ng build --base-href /day/
+
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
