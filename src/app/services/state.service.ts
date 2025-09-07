@@ -44,10 +44,10 @@ export class StateService {
   }
 
   navigateToNextPoem() {
-    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(res => {
+    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(count => {
       const currentState = this.poemState$.getValue();
       let nextNumber = currentState.number + 1;
-      if (nextNumber > res.count) {
+      if (nextNumber > count) {
         nextNumber = 1; // Loop back to the first poem
       }
       this.saveState({ ...currentState, number: nextNumber, date: this.getTodayDate() });
@@ -55,20 +55,20 @@ export class StateService {
   }
 
   navigateToPrevPoem() {
-    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(res => {
+    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(count => {
       const currentState = this.poemState$.getValue();
       let prevNumber = currentState.number - 1;
       if (prevNumber < 1) {
-        prevNumber = res.count; // Loop back to the last poem
+        prevNumber = count; // Loop back to the last poem
       }
       this.saveState({ ...currentState, number: prevNumber, date: this.getTodayDate() });
     });
   }
 
   navigateToRandomPoem() {
-    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(res => {
+    this.poemService.getPoemCount(this.poemState$.getValue().filename).pipe(take(1)).subscribe(count => {
         const currentState = this.poemState$.getValue();
-        const randomNumber = Math.floor(Math.random() * res.count) + 1;
+        const randomNumber = Math.floor(Math.random() * count) + 1;
         this.saveState({ ...currentState, number: randomNumber, date: this.getTodayDate() });
     });
   }

@@ -13,8 +13,8 @@ export class PoemService {
     return this.http.get<string[]>(this.apiUrl);
   }
 
-  getPoemCount(filename: string): Observable<{ count: number }> {
-    return this.http.get<{ count: number }>(`${this.apiUrl}/${filename}`);
+  getPoemCount(filename: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/${filename}`);
   }
 
   getPoem(filename: string, number: number): Observable<Poem> {
