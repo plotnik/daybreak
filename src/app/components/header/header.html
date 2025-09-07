@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  @if(poem$ | async; as poem) {
+    <span>{{ poem.title }}</span>
+  }
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openBookSelection()">
+      <mat-icon>book</mat-icon>
+      <span>Book</span>
+    </button>
+    <button mat-menu-item (click)="selectRandom()">
+      <mat-icon>shuffle</mat-icon>
+      <span>Random</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
