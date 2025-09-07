@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, switchMap, tap, take } from 'rxjs';
-import { Poem, PoemState } from '../poem.model';
+import { PoemState } from '../poem.model';
 import { PoemService } from './poem.service';
 
 const STATE_KEY = 'poemAppState';
