@@ -10,7 +10,7 @@ export class StateService {
   private poemService = inject(PoemService);
 
   // Default state if nothing is in local storage
-  private defaultState: PoemState = { filename: 'first-book.md', number: 1, date: this.getTodayDate() };
+  private defaultState: PoemState = { filename: 'titanik', number: 1, date: this.getTodayDate() };
 
   // Observables for components to subscribe to
   public poemState$ = new BehaviorSubject<PoemState>(this.loadState());

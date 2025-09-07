@@ -9,7 +9,7 @@ import { StateService } from '../../services/state.service';
   imports: [CommonModule, MarkdownModule],
   template: `
     @if (poem$ | async; as poem) {
-      <div class="poem-text great-vibes-regular">
+      <div class="poem-text poem-font">
         <markdown [data]="poem.text"></markdown>
       </div>
     } @else {

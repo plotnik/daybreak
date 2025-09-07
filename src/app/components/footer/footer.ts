@@ -29,9 +29,22 @@ export class Footer {
 
   prev() {
     this.stateService.navigateToPrevPoem();
+    this.scrollToTop();
   }
 
   next() {
     this.stateService.navigateToNextPoem();
+    this.scrollToTop();
+  }
+
+  private scrollToTop() {
+    // Small delay to ensure content has updated
+    setTimeout(() => {
+      const poemElement = document.querySelector('.poem-text');
+      
+      if (poemElement) {
+        poemElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } 
+    }, 100);
   }
 }
