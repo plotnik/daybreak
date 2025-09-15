@@ -19,7 +19,7 @@ import { StateService } from '../../services/state.service';
   styles: `
     .poem-text {
       white-space: pre-wrap; /* Respects newlines in the text */
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       line-height: 1.6;
       text-align: center;
     }

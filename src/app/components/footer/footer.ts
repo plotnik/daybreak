@@ -1,15 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatIconModule],
   template: `
     <div class="footer-nav">
-      <button mat-flat-button color="primary" (click)="prev()">Prev</button>
-      <button mat-flat-button color="primary" (click)="next()">Next</button>
+      <button mat-icon-button color="primary" (click)="prev()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="next()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
     </div>
   `,
   styles: `
