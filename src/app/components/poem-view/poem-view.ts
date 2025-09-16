@@ -2,30 +2,37 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { StateService } from '../../services/state.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-poem-view',
   standalone: true,
-  imports: [CommonModule, MarkdownModule],
-  template: `
-    @if (poem$ | async; as poem) {
-      <div class="poem-text poem-font">
-        <markdown [data]="poem.text"></markdown>
-      </div>
-    } @else {
-      <p>Loading poem...</p>
-    }
-  `,
-  styles: `
-    .poem-text {
-      white-space: pre-wrap; /* Respects newlines in the text */
-      font-size: 1.5rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-  `
+  imports: [CommonModule, MarkdownModule, MatIconModule],
+  templateUrl: './poem-view.html',
+  styleUrls: ['./poem-view.css']
 })
 export class PoemView {
   private stateService = inject(StateService);
   poem$ = this.stateService.currentPoem$;
+
+  prev() {
+    this.stateService.navigateToPrevPoem();
+    this.scrollToTop();
+  }
+
+  next() {
+    this.stateService.navigateToNextPoem();
+    this.scrollToTop();
+  }
+
+  private scrollToTop() {
+    // Small delay to ensure content has updated
+    setTimeout(() => {
+      const poemElement = document.querySelector('.poem-text');
+      
+      if (poemElement) {
+        poemElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } 
+    }, 100);
+  }  
 }

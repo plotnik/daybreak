@@ -1,7 +1,5 @@
-<mat-toolbar color="primary">
-  @if(poem$ | async; as poem) {
-    <div class="header-text poem-font">{{ poem.title }}</div>
-  }
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="poem-font">DayBreak</span>
   <span class="spacer"></span>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>

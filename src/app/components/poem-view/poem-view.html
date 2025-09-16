@@ -1,0 +1,16 @@
+@if (poem$ | async; as poem) {
+    <div class="header-text poem-font">{{ poem.title }}</div>
+    <div class="poem-text poem-font">
+    <markdown [data]="poem.text"></markdown>
+    </div>
+} @else {
+    <p>Loading...</p>
+}
+<div class="footer-nav">
+    <button matFab color="primary" (click)="prev()">
+    <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button matIconButton color="primary" (click)="next()">
+    <mat-icon>arrow_forward</mat-icon>
+    </button>
+</div>

@@ -1,12 +1,7 @@
 .spacer {
   flex: 1 1 auto;
 }
-.header-text {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: underline;
+
+.header-toolbar {
+  border-bottom: 1px solid #ccc;
 }

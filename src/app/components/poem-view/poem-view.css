@@ -1,0 +1,23 @@
+.poem-text {
+    white-space: pre-wrap;
+    /* Respects newlines in the text */
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+.header-text {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border-top: 1px solid #ccc;
+
+    >button {
+        flex: 1;
+    }
+}
