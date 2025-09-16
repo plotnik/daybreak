@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { StateService } from '../../services/state.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-poem-view',
   standalone: true,
-  imports: [CommonModule, MarkdownModule, MatIconModule],
+  imports: [CommonModule, MarkdownModule, MatIconModule, MatButtonModule, MatButtonModule],
   templateUrl: './poem-view.html',
   styleUrls: ['./poem-view.css']
 })
